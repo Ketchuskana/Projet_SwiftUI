@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-struct AddParametre: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    AddParametre()
+class  AppParametre{
+    
+    static let backgroundColor: Color = .teal
+    static var isValid: Bool = true
+    
 }

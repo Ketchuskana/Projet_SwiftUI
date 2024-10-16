@@ -5,14 +5,26 @@
 //  Created by SON ESSOME MOUKOURI Ketchuskana on 16/10/2024.
 //
 
-import SwiftUI
+import Foundation
 
-struct MainViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class MainViewModel: ObservableObject {
+    
+    @Published var isValid = false
+
+
+    func checkConnection(login: String, password: String) {
+        let passwordTest = DataController.registeredUsers[login]
+        if let realPassword = DataController.registeredUsers[login] { // L'index existe-t-il ?
+            if realPassword == password { // Le mot de passe est-il bon ?
+                isValid = true
+            } else {
+                isValid = false
+                // TODO: Messages d'erreur
+            }
+        } else {
+            isValid = false
+            // TODO: Messages d'erreurs
+        }
     }
 }
 
-#Preview {
-    MainViewModel()
-}

@@ -8,8 +8,48 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = MainViewModel()
+    
+    @State var login: String = ""
+    @State var password: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack(alignment: .leading) {
+                if !viewModel.isValid {
+                    VStack {
+                        Text("Connectez-vous")
+                            .padding(.leading, 20)
+                        
+                        TextField("Login", text: $login)
+                            .frame(width: 246, height: 44)
+                            .background(.white)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        TextField("Password", text: $password)
+                            .frame(width: 246, height: 44)
+                            .background(.white)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        Button {
+                            viewModel.checkConnection(login: login, password: password)
+                        } label: {
+                            Text("Se connecter")
+                        }
+                    }
+                } else {
+                    
+                    NavigationLink(destination: MenuAppView()) {
+                        MenuAppView()
+//                        Text("Menu")
+//                            .padding()
+//                            .background(.blue)
+                            
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
