@@ -13,7 +13,6 @@ class MainViewModel: ObservableObject {
     @Published var userName: String = ""
     
     private let dataController = DataController()
-    
     func checkConnection(login: String, password: String) {
         if dataController.checkUser(login: login, password: password) {
             userName = login

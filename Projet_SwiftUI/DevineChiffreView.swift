@@ -22,20 +22,21 @@ struct DevineChiffreView: View {
 
     var body: some View {
         VStack {
-            Text("Temps restant : \(timeRemaining) secondes")
-                .font(.title)
+            // Affichage du temps restant
+            Text("Temps restant : \(timeRemaining) s")
+                .font(.system(size: 18, weight: .semibold))
                 .padding()
-                .foregroundColor(timeRemaining > 10 ? .black : .red)
+                .foregroundColor(timeRemaining > 15 ? .black : .red)
+            
+            HStack{
+                // Affichage du score
+                Text("Score: \(score)")
+                    .padding()
 
-            // Affichage du score
-            Text("Score: \(score)")
-                .font(.largeTitle)
-                .padding()
-
-            // Affichage du nombre d'essais (décroissant)
-            Text("Essais restants: \(attempts)")
-                .font(.title2)
-                .padding()
+                // Affichage du nombre d'essais (décroissant)
+                Text("Essais restants: \(attempts)")
+                    .padding()
+            }
 
             TextField("Entrer un nombre entre 1 et 10", text: $numTest)
                 .keyboardType(.numberPad)
@@ -43,7 +44,7 @@ struct DevineChiffreView: View {
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
                 .padding(.horizontal, 40)
-                .font(.title2)
+                .font(.system(size: 15, weight: .semibold))
                 .disabled(!gameStarted)
 
             // Bouton "Commencer" ou "Tester"
@@ -55,27 +56,22 @@ struct DevineChiffreView: View {
                 }
             }) {
                 Text(gameStarted ? "Tester" : "Commencer")
-                    .font(.title)
+                    .frame(width: 100, height: 20)
                     .padding()
-                    .background(Color.pink)
+                    .background(Color.orange)
                     .foregroundColor(.white)
                     .cornerRadius(10)
                     .padding(.top, 20)
                     .scaleEffect(showPulseAnimation ? buttonScale : 1.0)
-                    .animation(
-                        showPulseAnimation ? .easeInOut(duration: 0.6).repeatForever(autoreverses: true) : .default,
-                        value: buttonScale
-                    )
             }
             .disabled(gameEnded)
 
             // Message de statut du jeu
             Text(gameStatus)
-                .font(.title)
                 .padding()
                 .foregroundColor(gameStatus == "Gagné !" ? .green : .black)
 
-            // Bouton "Rejouer" si le jeu est terminé
+            // Affichage du bouton "Rejouer" si le jeu est terminé
             if gameEnded {
                 Button(action: {
                     resetGame()
@@ -91,11 +87,8 @@ struct DevineChiffreView: View {
             }
         }
         .padding()
-        .onAppear {
-            showPulseAnimation = !gameStarted
-        }
     }
-
+    // Fonction pour deviner le nombre
     func checkGuess() {
         guard let guess = Int(numTest), (1...10).contains(guess) else {
             gameStatus = "Veuillez entrer un nombre valide entre 1 et 10."
@@ -122,11 +115,13 @@ struct DevineChiffreView: View {
         numTest = ""
     }
 
+    // Fonction le round suivant après 3 essais
     func resetRound() {
         numDevine = Int.random(in: 1...10)
         attempts = 3
     }
 
+    // Fonction recommencer le jeu après le temps écoulé
     func resetGame() {
         score = 0
         attempts = 3
@@ -139,12 +134,13 @@ struct DevineChiffreView: View {
         numDevine = Int.random(in: 1...10) // Recommencer le jeu
     }
 
+    // Fonction pour vérifier que le jeu à commencer
     func startGame() {
         gameStarted = true
         startTimer()
-        showPulseAnimation = false
     }
 
+    // Fonction de lancement et arrêt de timer
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if timeRemaining > 0 {

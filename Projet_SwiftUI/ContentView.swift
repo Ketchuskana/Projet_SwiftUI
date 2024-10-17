@@ -18,8 +18,8 @@ struct ContentView: View {
     @State private var reelColor1: Color = Color.gray.opacity(0.8)
     @State private var reelColor2: Color = Color.gray.opacity(0.8)
     @State private var reelColor3: Color = Color.gray.opacity(0.8)
-    @State private var buttonScale: CGFloat = 1.0 // État pour l'animation de bouton
-    @State private var showPulseAnimation: Bool = false // Contrôle de l'animation de pulsation
+    @State private var buttonScale: CGFloat = 1.0
+    @State private var showPulseAnimation: Bool = false
 
     let winColor = Color.green
     let emojis = ["💰", "🍒", "🍀"]
@@ -33,6 +33,7 @@ struct ContentView: View {
                 .padding(.bottom, 10)
             
             Text("Score: \(score)")
+                .font(.headline)
                 .padding()
                 .foregroundColor(.white)
             
@@ -47,6 +48,7 @@ struct ContentView: View {
             }
             .padding(.bottom)
 
+            // Affichage des rectangles contenant les images
             VStack {
                 
                 HStack(spacing: 10) {
@@ -97,6 +99,7 @@ struct ContentView: View {
                 .cornerRadius(15)
                 .shadow(color: .black, radius: 10, x: 0, y: 5)
                 
+                // Affichage bouton lancement du jeu
                 Button(action: {
                     if attempts >= 5 {
                         resetGame()
@@ -133,9 +136,13 @@ struct ContentView: View {
         }
         .padding()
         .background(Color.black)
+        .cornerRadius(10)
     }
-
+    
+    
+    // Fonction logique du jeu
     func playGameWithDelay() {
+        // Choix aléatoire des emojis, diminution des vies saprès un lancé, augmentation du score si on gagne
         appui1 = emojis.randomElement() ?? "💰"
         appui2 = emojis.randomElement() ?? "💰"
         appui3 = emojis.randomElement() ?? "💰"
@@ -151,6 +158,7 @@ struct ContentView: View {
         animateRandomNumbers(for: $appui2, delay: 2)
         animateRandomNumbers(for: $appui3, delay: 3)
 
+        // Diminution des vies saprès un lancé, augmentation du score de 1 point si on gagne
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             if appui1 == appui2 && appui2 == appui3 {
                 score += 1
@@ -162,26 +170,12 @@ struct ContentView: View {
             } else if attempts >= 5 {
                 gameStatus = "Perdu !"
                 buttonScale = 1.2
-                showPulseAnimation = true // Active l'animation de pulsation
+                showPulseAnimation = true
             } else {
                 gameStatus = "Essayez encore !"
             }
             isButtonDisabled = false
         }
-    }
-
-    func resetGame() {
-        appui1 = emojis.randomElement() ?? "💰"
-        appui2 = emojis.randomElement() ?? "💰"
-        appui3 = emojis.randomElement() ?? "💰"
-        attempts = 0
-        gameStatus = ""
-        reelColor1 = Color.gray.opacity(0.8)
-        reelColor2 = Color.gray.opacity(0.8)
-        reelColor3 = Color.gray.opacity(0.8)
-        isButtonDisabled = false
-        buttonScale = 1.0
-        showPulseAnimation = false // Désactive l'animation de pulsation
     }
 
     func animateRandomNumbers(for appui: Binding<String>, delay: Double) {
@@ -195,6 +189,20 @@ struct ContentView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay + (Double(maxAnimations) * 0.1)) {
             appui.wrappedValue = emojis.randomElement() ?? "💰"
         }
+    }
+    
+    func resetGame() {
+        appui1 = emojis.randomElement() ?? "💰"
+        appui2 = emojis.randomElement() ?? "💰"
+        appui3 = emojis.randomElement() ?? "💰"
+        attempts = 0
+        gameStatus = ""
+        reelColor1 = Color.gray.opacity(0.8)
+        reelColor2 = Color.gray.opacity(0.8)
+        reelColor3 = Color.gray.opacity(0.8)
+        isButtonDisabled = false
+        buttonScale = 1.0
+        showPulseAnimation = false
     }
 }
 

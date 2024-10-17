@@ -30,7 +30,7 @@ struct LandingPageView: View {
                         .foregroundColor(.white)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.blue)
+                                .fill(Color.black)
                                 .shadow(radius: 10)
                         )
                         .padding(.horizontal, 20)

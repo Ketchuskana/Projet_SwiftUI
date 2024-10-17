@@ -24,7 +24,6 @@ class DataController {
     
     func checkTableau() {
         for number in tableau {
-            // Traitement des éléments du tableau
         }
     }
     
