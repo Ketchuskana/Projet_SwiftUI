@@ -16,7 +16,6 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // Image de fond
                 Image("fond")
                     .resizable()
                     .scaledToFill()
