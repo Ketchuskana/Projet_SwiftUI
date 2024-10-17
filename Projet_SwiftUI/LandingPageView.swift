@@ -24,7 +24,7 @@ struct LandingPageView: View {
                     .padding(.top, 40)
                 
                 NavigationLink(destination: MenuAppView()) {
-                    Text("Découvrir les applications")
+                    Text("Découvrir les jeux")
                         .padding()
                         .font(.title2)
                         .foregroundColor(.white)

@@ -10,84 +10,102 @@ import SwiftUI
 struct MenuAppView: View {
     var body: some View {
         NavigationStack {
-            ZStack  {
-                
+            ZStack {
+                // Image de fond pour l'ensemble de la vue
                 Image("fond_menu")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
-                    .frame(alignment: .center)
                 
-                VStack(spacing: 20) {
+                VStack() {
                     
-                    Text("Menu des applications")
+                    Text("Nos minis jeux")
                         .font(.largeTitle)
                         .padding()
                     
+                    // Bouton de navigation vers le jeu "Jackpot"
                     NavigationLink(destination: ContentView()) {
                         ZStack {
-                            // Image de fond
+                            // Image de fond pour le bouton
                             Image("JACKPOT")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: UIScreen.main.bounds.width - 40, height: 250)
                                 .clipped()
                             
-                            // Dégradé
+                            // Dégradé pour améliorer la lisibilité du texte
                             LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.8)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: 250)
-                                .frame(maxWidth: .infinity)
-                                .alignmentGuide(.bottom) { _ in 0 }
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 250)
+                                .cornerRadius(10)
 
-                            // Nom du jeu
-                            VStack {
-                                Spacer()
-                                Text("Jackpot")
-                                    .font(.title)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .padding(.bottom, 10)
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 250, alignment: .bottom)
+                            // Texte pour le nom du jeu
+                            Text("Jackpot")
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding(.bottom, 10)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 250, alignment: .bottom)
                         }
                         .cornerRadius(10)
                         .padding([.leading, .trailing], 20)
                     }
 
+                    // Bouton de navigation vers le jeu "Devine chiffre"
                     NavigationLink(destination: DevineChiffreView()) {
                         ZStack {
-                            // Image de fond
+                            // Image de fond pour le bouton
                             Image("DEVINE CHIFFRE")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 220)
+                                .clipped()
+                            
+                            // Dégradé pour améliorer la lisibilité du texte
+                            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.8)]), startPoint: .top, endPoint: .bottom)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 220)
+                                .cornerRadius(10)
+
+                            // Texte pour le nom du jeu
+                            Text("Devine chiffre")
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding(.bottom, 10)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 220, alignment: .bottom)
+                        }
+                        .cornerRadius(10)
+                        .padding([.leading, .trailing], 20)
+                    }
+                    
+                    // Bouton de navigation vers le jeu "Matching de carte"
+                    NavigationLink(destination: MatchingGameView()) {
+                        ZStack {
+                            // Image de fond pour le bouton
+                            Image("Matching cart")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: UIScreen.main.bounds.width - 40, height: 250)
                                 .clipped()
                             
-                            // Dégradé
+                            // Dégradé pour améliorer la lisibilité du texte
                             LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.8)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: 250)
-                                .frame(maxWidth: .infinity)
-                                .alignmentGuide(.bottom) { _ in 0 }
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 250)
+                                .cornerRadius(10)
 
-                            // Nom du jeu
-                            VStack {
-                                Spacer()
-                                Text("Devine chiffre")
-                                    .font(.title)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .padding(.bottom, 10)
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 250, alignment: .bottom)
+                            // Texte pour le nom du jeu
+                            Text("Matching de carte")
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding(.bottom, 10)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 250, alignment: .bottom)
                         }
                         .cornerRadius(10)
                         .padding([.leading, .trailing], 20)
                     }
                 }
-                
                 .padding(.top)
             }
-            
         }
     }
 }
