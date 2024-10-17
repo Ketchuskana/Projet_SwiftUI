@@ -10,8 +10,8 @@ import SwiftUI
 struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
-    @State var login: String = ""
-    @State var password: String = ""
+    @State private var login: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         NavigationStack {
@@ -54,8 +54,8 @@ struct MainView: View {
                         .padding()
                         
                     } else {
-                        NavigationLink(destination: MenuAppView()) {
-                            MenuAppView()
+                        NavigationLink(destination: LandingPageView(userName: viewModel.userName)) {
+                            LandingPageView(userName: viewModel.userName)
                         }
                     }
                 }

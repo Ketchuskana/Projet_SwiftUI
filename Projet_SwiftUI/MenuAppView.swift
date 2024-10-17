@@ -11,6 +11,7 @@ struct MenuAppView: View {
     var body: some View {
         NavigationStack {
             ZStack  {
+                
                 Image("fond_menu")
                     .resizable()
                     .scaledToFill()
@@ -33,7 +34,7 @@ struct MenuAppView: View {
                                 .clipped()
                             
                             // Dégradé
-                            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
+                            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.8)]), startPoint: .top, endPoint: .bottom)
                                 .frame(height: 250)
                                 .frame(maxWidth: .infinity)
                                 .alignmentGuide(.bottom) { _ in 0 }
@@ -63,7 +64,7 @@ struct MenuAppView: View {
                                 .clipped()
                             
                             // Dégradé
-                            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
+                            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.8)]), startPoint: .top, endPoint: .bottom)
                                 .frame(height: 250)
                                 .frame(maxWidth: .infinity)
                                 .alignmentGuide(.bottom) { _ in 0 }

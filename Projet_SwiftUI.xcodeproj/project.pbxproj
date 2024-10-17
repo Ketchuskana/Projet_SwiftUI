@@ -13,6 +13,7 @@
 		4B3050B82CC00684001F368D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3050B72CC00684001F368D /* DataController.swift */; };
 		4B3050BA2CC006A0001F368D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3050B92CC006A0001F368D /* MainViewModel.swift */; };
 		4B3050BC2CC006C5001F368D /* AddParametre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3050BB2CC006C5001F368D /* AddParametre.swift */; };
+		4B5C5D452CC11291004C6DA6 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C5D442CC11291004C6DA6 /* LandingPageView.swift */; };
 		4B9675DA2CBFFEB50004E003 /* Projet_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9675D92CBFFEB50004E003 /* Projet_SwiftUIApp.swift */; };
 		4B9675DC2CBFFEB50004E003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9675DB2CBFFEB50004E003 /* ContentView.swift */; };
 		4B9675DE2CBFFEB80004E003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B9675DD2CBFFEB80004E003 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		4B3050B72CC00684001F368D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		4B3050B92CC006A0001F368D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4B3050BB2CC006C5001F368D /* AddParametre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParametre.swift; sourceTree = "<group>"; };
+		4B5C5D442CC11291004C6DA6 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		4B9675D62CBFFEB50004E003 /* Projet_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projet_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9675D92CBFFEB50004E003 /* Projet_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projet_SwiftUIApp.swift; sourceTree = "<group>"; };
 		4B9675DB2CBFFEB50004E003 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				4B3050B92CC006A0001F368D /* MainViewModel.swift */,
 				4B3050B52CC0060E001F368D /* DevineChiffreView.swift */,
 				4B3050B32CC005D2001F368D /* MenuAppView.swift */,
+				4B5C5D442CC11291004C6DA6 /* LandingPageView.swift */,
 				4B9675DB2CBFFEB50004E003 /* ContentView.swift */,
 				4B9675DD2CBFFEB80004E003 /* Assets.xcassets */,
 				4B9675DF2CBFFEB80004E003 /* Preview Content */,
@@ -282,6 +285,7 @@
 				4B3050B42CC005D2001F368D /* MenuAppView.swift in Sources */,
 				4B3050B22CC002AF001F368D /* MainView.swift in Sources */,
 				4B9675DA2CBFFEB50004E003 /* Projet_SwiftUIApp.swift in Sources */,
+				4B5C5D452CC11291004C6DA6 /* LandingPageView.swift in Sources */,
 				4B3050BC2CC006C5001F368D /* AddParametre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,25 +6,22 @@
 //
 
 import Foundation
+import SwiftUI
 
 class MainViewModel: ObservableObject {
-    
     @Published var isValid = false
-
-
+    @Published var userName: String = ""
+    
+    private let dataController = DataController()
+    
     func checkConnection(login: String, password: String) {
-        let passwordTest = DataController.registeredUsers[login]
-        if let realPassword = DataController.registeredUsers[login] { // L'index existe-t-il ?
-            if realPassword == password { // Le mot de passe est-il bon ?
-                isValid = true
-            } else {
-                isValid = false
-                // TODO: Messages d'erreur
-            }
+        if dataController.checkUser(login: login, password: password) {
+            userName = login
+            isValid = true
         } else {
             isValid = false
-            // TODO: Messages d'erreurs
         }
     }
 }
+
 
