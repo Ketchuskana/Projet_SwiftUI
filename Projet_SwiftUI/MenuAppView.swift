@@ -22,6 +22,7 @@ struct MenuAppView: View {
                     Text("Nos minis jeux")
                         .font(.largeTitle)
                         .padding()
+                        .foregroundColor(.white)
                     
                     // Bouton de navigation vers le jeu "Jackpot"
                     NavigationLink(destination: ContentView()) {
